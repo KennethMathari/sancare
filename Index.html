@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title >Home</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="icon" href="Favicon/FAVsancare.ico" type="image/x-icon" sizes="16x16">
+
+	<style>
+		.jumbotron{
+
+			text-align:center; 
+			color: #006a00;
+			background-color: #e6e6e6;
+		}
+		.jumbotron p{
+			text-align: left;
+			color: #006a00;
+		}
+		li a.active{
+			background-color: #006a00;
+		}
+		.mySlides {display:none;}
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="Home.html">Sancare Preparatory</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+         <li><a href="News.html">News</a></li>
+          <li><a href="Calendar.html">Calendar</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-9">
+					<div class="jumbotron" style="border: solid;">
+						<div class="col-md-3">
+							<img src="Logo\SancareLogoHomeJumbotron.png"  style="float: left;padding-right:40px;padding-top: 10px;  ">
+						</div>
+						<div class="col-md-9">
+							<B><h2 style="font-family: 'Times New Roman';padding-left: 30px;">SANCARE PREPARATORY SCHOOL</h2> </B>
+							<H3 style="font-family: 'Times New Roman';">P.O. BOX 61416-00200 G.P.O. Nairobi</H3>
+							<h3 style="font-family: 'Times New Roman';">Tel: 0723 542 220 / 0722 374 480</h3>
+							<h3 style="font-family: 'Times New Roman';padding-left: 30px;">Located at: Huruma Estate, Near Redeemed Gospel Church Nairobi</h3>
+						</div>
+
+						<br>
+						<p style="color: #111111; padding-top: 22px;">Welcome to Sancare Preparatory School, a centre of excellence and quality education. Sancare Preparatory School is a private day school offering 8-4-4 curriculum. The school is founded on Christian principles, values and teachings that form a strong moral background for the school community.</p>
+					</div>
+				</div>
+
+				
+ <div class="col-md-3 ">
+          <div class="sidebar-offcanvas" id="sidebar" style="font-size: 20px;">
+            <div class="list-group">
+              <li class="list-group-item" style="background-color: #006a00;color: #000;height: 50px;text-align: center;">Features</li>
+              <a href="Curriculum.html" class="list-group-item" style="height: 50px;text-align: center;">Curriculum</a>
+              <a href="Parents&Students.html" class="list-group-item" style="height: 50px;text-align: center;">Parents and Students</a>
+              <a href="ServicesFacilities.html" class="list-group-item" style="height: 50px;text-align: center;">Services & Facilities</a>
+              <a href="ClassRange.html" class="list-group-item" style="height: 50px;text-align: center;">Class Range</a>
+              <a href="Library.html" class="list-group-item" style="height: 50px;text-align: center;">Library</a>
+              <a href="preschool.html" class="list-group-item "  style="height: 50px;text-align: center;">Enrollment</a>
+              <a href="SportsClubs.html" class="list-group-item" style="height: 50px;text-align: center;">Sports & Clubs</a>
+              <a href="Calendar.html" class="list-group-item" style="height: 50px;text-align: center;">Term Dates</a>
+              <a href="Fees.html" class="list-group-item" style="height: 50px;text-align: center;">Fees Structure</a>
+            </div>
+          </div> 
+        </div>
+
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4"><h2 style="color: #006a00;">School Administration</h2>
+					<p style="font-size:20px ">We have a team of management and staff who care, act professionally, are qualified and dedicated to guide your child towards better performance.
+						The school management is a well structured team that ensures efficient provision of services to all stake-holders in the school community.</p>
+						<h2 style="color: #006a00;">Our Motto:<i><p style="color: #000000;">Become a Better You!</p></i></h2>
+						<img class="mySlides" src="Images\DSCN2740.JPG" style="width:100%">
+						<img class="mySlides"  src="Images\DSCN2979.JPG" style="width:100%">
+						<img class="mySlides" src="Images\DSCN2827.JPG" style="width:100%">
+						<img class="mySlides" src="Images\DSCN2550.JPG" style="width:100%">
+						<img class="mySlides" src="Images\danza.jpg" style="width:100%">
+
+					</div>
+					<script>
+						var myIndex = 0;
+						carousel();
+
+						function carousel() {
+							var i;
+							var x = document.getElementsByClassName("mySlides");
+							for (i = 0; i < x.length; i++) {
+								x[i].style.display = "none";  
+							}
+							myIndex++;
+							if (myIndex > x.length) {myIndex = 1}    
+								x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+<div class="col-md-4"><h2 style="color: #006a00;">Our Mission Statement:</h2>
+	<p style="font-size:20px ">To provide high quality and relevant education towards spiritual, physical and social development in order to produce competent, reliable and individuals of integrity.</p>
+	<img src="Images\DSCN2946.JPG" class="img-responsive" >
+	<h2 style="color: #006a00; padding-top: 10px;">Our Vision</h2>
+	<p style="font-size:20px; padding-top:10px; ">To be the centre of academic excellence and role model in high moral values where students learn to lead and serve the community.</p>
+</div>
+<div class="col-md-4"><h2 style="color: #006a00;">Our Goals:</h2>
+	<p style="font-size:20px ">All students of Sancare Preparatory School succeed at each level and graduate as well prepared for a variety of post primary pursuits in our Kenyan Society.</p>
+	<li style="font-size:20px ">We will ensure all students reach or exceed individual learning goals aligned with national standards and higher education level requirements.</li>
+	<li style="font-size:20px ">Engage parents and the community in supporting high levels of students achievements.</li>
+	<li style="font-size:20px ">Align all the school's resources to achieve academic excellence for all students by educating hearts and minds.</li>
+	<li style="font-size:20px ">Ensure that we have the right infrastructure, able management, staff and proper planning.</li>
+
+</div>
+
+</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6"><h2 style="color: #006a00;">In Sancare Preparatory School you will find:</h2>
+			<li style="font-size:20px ">A safe, secure & student friendly learning environment.</li>
+			<li style="font-size:20px ">Qualified, dedicated loving teachers.</li>
+			<li style="font-size:20px ">Award winning academics</li>
+			<li style="font-size:20px ">Champions in extra curricular activities</li>
+			<li style="font-size:20px ">Learning environment free of drugs, violence & gangs.</li> 
+			<li style="font-size:20px ">A balanced & meaningful currriculum, which encourage students to be active, independent and self-motivated.</li>
+		</div>
+		<div class="col-md-6">
+			<img style="padding-top:20px; padding-left:25px;  " class="img-responsive" src="Images\DSCN3038.JPG">					
+		</div>
+	</div>
+</div>
+
+<div class="well well-lg" style="margin: 50px;background-color: e6e6e6;">
+	<div class="row" style="color:#006a00; " >
+		<div class="col-md-4">
+			<ul>
+				<ul ><span class="glyphicon glyphicon-home"></span><a href="Home.html" style="color:#006a00;font-size: 20px; ">Home</a> </ul>
+				<ul><span class="glyphicon glyphicon-search"></span><a href="AboutUs.html" style="color:#006a00; font-size: 20px;">About Us</a></ul>
+				<ul><span class="glyphicon glyphicon-phone"></span><a href="Contact.html" style="color:#006a00;font-size: 20px;">Contact</a></ul>
+				<ul><span class="glyphicon glyphicon-list-alt"></span><a href="News.html" style="color:#006a00;font-size: 20px;">News</a></ul>
+				<ul><span class="glyphicon glyphicon-calendar"></span><a href="Calendar.html" style="color:#006a00; font-size: 20px;">Calendar</a></ul>
+			</ul>	
+		</div>
+		<div class="col-md-4" style="text-align: center;font-size: 17px;">
+			<ul><span class="glyphicon glyphicon-education"></span>Sancare Preparatory School</ul>
+			<ul><span class="glyphicon glyphicon-envelope"></span>P.O. BOX 61416-00200 G.P.O. Nairobi</ul>
+			<ul><span class="glyphicon glyphicon-phone-alt"></span>Tel: 0723 542 220 / 0722 374 480</ul>
+			<ul><span class="glyphicon glyphicon-envelope"></span>sancarepreparatory@gmail.com</ul>
+		</div>
+		<div class="col-md-4">
+			<img src="Logo\SancareLogoHomeFooter.png" class="img-responsive" style="float: right;">
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>
