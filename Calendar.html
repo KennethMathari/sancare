@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calendar</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="icon" href="Favicon/FAVsancare.ico" type="image/x-icon" sizes="16x16">
+
+	<style>
+		@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+    @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
+    .body {
+    padding: 60px 0px;
+    background-color: rgb(220, 220, 220);
+  }
+    
+    .event-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+  }
+  .event-list > li {
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 5px rgb(51, 51, 51);
+    box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.7);
+    padding: 0px;
+    margin: 0px 0px 20px;
+  }
+  .event-list > li > time {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(197, 44, 102);
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .event-list > li:nth-child(even) > time {
+    background-color: rgb(165, 82, 167);
+  }
+  .event-list > li > time > span {
+    display: none;
+  }
+  .event-list > li > time > .day {
+    display: block;
+    font-size: 56pt;
+    font-weight: 100;
+    line-height: 1;
+  }
+  .event-list > li time > .month {
+    display: block;
+    font-size: 24pt;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .event-list > li > img {
+    width: 100%;
+  }
+  .event-list > li > .info {
+    padding-top: 5px;
+    text-align: center;
+  }
+  .event-list > li > .info > .title {
+    font-size: 17pt;
+    font-weight: 700;
+    margin: 0px;
+  }
+  .event-list > li > .info > .desc {
+    font-size: 13pt;
+    font-weight: 300;
+    margin: 0px;
+  }
+  .event-list > li > .info > ul,
+  .event-list > li > .social > ul {
+    display: table;
+    list-style: none;
+    margin: 10px 0px 0px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+  }
+  .event-list > li > .social > ul {
+    margin: 0px;
+  }
+  .event-list > li > .info > ul > li,
+  .event-list > li > .social > ul > li {
+    display: table-cell;
+    cursor: pointer;
+    color: rgb(30, 30, 30);
+    font-size: 11pt;
+    font-weight: 300;
+        padding: 3px 0px;
+  }
+    .event-list > li > .info > ul > li > a {
+    display: block;
+    width: 100%;
+    color: rgb(30, 30, 30);
+    text-decoration: none;
+  } 
+    .event-list > li > .social > ul > li {    
+        padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+        padding: 3px 0px;
+  } 
+  .event-list > li > .info > ul > li:hover,
+  .event-list > li > .social > ul > li:hover {
+    color: rgb(30, 30, 30);
+    background-color: rgb(200, 200, 200);
+  }
+  
+  @media (min-width: 768px) {
+    .event-list > li {
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 120px;
+      padding: 0px;
+    }
+    .event-list > li > time,
+    .event-list > li > img  {
+      display: inline-block;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 120px;
+      float: left;
+    }
+    .event-list > li > .info {
+      background-color: rgb(245, 245, 245);
+      overflow: hidden;
+    }
+    .event-list > li > time,
+    .event-list > li > img {
+      width: 120px;
+      height: 120px;
+      padding: 0px;
+      margin: 0px;
+    }
+    .event-list > li > .info {
+      position: relative;
+      height: 120px;
+      text-align: left;
+      padding-right: 40px;
+    } 
+    .event-list > li > .info > .title, 
+    .event-list > li > .info > .desc {
+      padding: 0px 10px;
+    }
+    .event-list > li > .info > ul {
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+    }
+    .event-list > li > .social {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      display: block;
+      width: 40px;
+    }
+        .event-list > li > .social > ul {
+            border-left: 1px solid rgb(230, 230, 230);
+        }
+    .event-list > li > .social > ul > li {      
+      display: block;
+            padding: 0px;
+    }
+    .event-list > li > .social > ul > li > a {
+      display: block;
+      width: 40px;
+      padding: 10px 0px 9px;
+    }
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="Home.html">Sancare Preparatory</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+         <li><a href="News.html">News</a></li>
+          <li class="active"><a href="Calendar.html">Calendar</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<h2 style="text-align: center; ">FIRST TERM 2017 DATES</h2>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					 <ul class="event-list">
+          <li>
+            <time datetime="2017-01-03">
+              <span class="day">3</span>
+              <span class="month">Jan</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Opening Staff Meeting</h2>
+              <p class="desc">Both teaching and non-teaching staff</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-01-04 ">
+              <span class="day">4</span>
+              <span class="month">Jan</span>
+              <span class="year">2017</span>
+              <span class="time">8:00 AM</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Official School Opening Day</h2>
+              <p class="desc">All students report to school</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-01-24">
+              <span class="day">24</span>
+              <span class="month">Jan</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Class 8 PTA Meeting</h2>
+              <p class="desc">Meeting for parents and teachers of class 8 students.</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-02-03">
+              <span class="day">03</span>
+              <span class="month">Feb</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Games & Sports</h2>
+              <p class="desc"> For the Upper Primary (Class 4 to 8).</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-02-21">
+              <span class="day">21</span>
+              <span class="month">Feb</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Swimming</h2>
+              <p class="desc"> For the Upper & Lower Primary.</p>
+            </div>
+          </li>
+
+           <li>
+            <time datetime="2017-02-22">
+              <span class="day">22</span>
+              <span class="month">Feb</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Mid-Term Exams</h2>
+              <p class="desc"> Start of Mid-Term exams.</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-03-02">
+              <span class="day">02</span>
+              <span class="month">Mar</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Mid-Term Break</h2>
+              <p class="desc"> Student commence their mid-term break.</p>
+            </div>
+          </li>
+
+          
+
+        </ul>
+				</div>
+				<div class="col-md-6">
+					<ul class="event-list">
+					<li>
+            <time datetime="2017-03-06">
+              <span class="day">06</span>
+              <span class="month">Mar</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Learning Resumes</h2>
+              <p class="desc"> Student return from their mid-term break.</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-03-10">
+              <span class="day">10</span>
+              <span class="month">Mar</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Games & Sports</h2>
+              <p class="desc">For Pre-School students(Baby Class, Nursery & Pre-Unit).</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-03-21 ">
+              <span class="day">21</span>
+              <span class="month">Mar</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Swimming</h2>
+              <p class="desc">For Pre-School Students</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-03-27">
+              <span class="day">27</span>
+              <span class="month">Mar</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">End Term Exams</h2>
+              <p class="desc">Start of the End-Term Exams.</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-04-04">
+              <span class="day">04</span>
+              <span class="month">Apr</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Closing Day</h2>
+              <p class="desc"> The school officially closes for the April holiday.</p>
+            </div>
+          </li>
+
+          <li>
+            <time datetime="2017-05-02">
+              <span class="day">02</span>
+              <span class="month">May</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Term 2 Staff Opening Meeting</h2>
+              <p class="desc"> Meeting for all staff members.</p>
+            </div>
+          </li>
+
+           <li>
+            <time datetime="2017-05-03">
+              <span class="day">03</span>
+              <span class="month">May</span>
+              <span class="year">2017</span>
+              <span class="time">ALL DAY</span>
+            </time>
+            <div class="info">
+              <h2 class="title">Opening Day</h2>
+              <p class="desc"> All students report to school.</p>
+            </div>
+          </li>
+
+        </ul>
+				</div>
+			</div>
+		</div>
+
+		<h2 style="text-align: center;color:#006a00; ">BECOME A BETTER YOU</h2>
+					
+		<div class="well well-lg" style="margin: 50px;">
+			<div class="row" style="color:#006a00; " >
+				<div class="col-md-4">
+				<ul>
+					<ul ><span class="glyphicon glyphicon-home"></span><a href="Home.html" style="color:#006a00;font-size: 20px; ">Home</a> </ul>
+					<ul><span class="glyphicon glyphicon-search"></span><a href="AboutUs.html" style="color:#006a00; font-size: 20px;">About Us</a></ul>
+					<ul><span class="glyphicon glyphicon-phone"></span><a href="Contact.html" style="color:#006a00;font-size: 20px;">Contact</a></ul>
+					<ul><span class="glyphicon glyphicon-list-alt"></span><a href="News.html" style="color:#006a00;font-size: 20px;">News</a></ul>
+					<ul><span class="glyphicon glyphicon-calendar"></span><a href="Calendar.html" style="color:#006a00; font-size: 20px;">Calendar</a></ul>
+				</ul>	
+				</div>
+				<div class="col-md-4" style="text-align: center;font-size: 17px;">
+					<ul><span class="glyphicon glyphicon-education"></span>Sancare Preparatory School</ul>
+					<ul><span class="glyphicon glyphicon-envelope"></span>P.O. BOX 61416-00200 G.P.O. Nairobi</ul>
+					<ul><span class="glyphicon glyphicon-phone-alt"></span>Tel: 0723 542 220 / 0722 374 480</ul>
+					<ul><span class="glyphicon glyphicon-envelope"></span>sancarepreparatory@gmail.com</ul>
+				</div>
+				<div class="col-md-4">
+					<img src="Logo\SancareLogoHomeFooter.png" style="float: right;">
+				</div>
+			</div>
+			</div>
+                    
+
+</body>
+</html>

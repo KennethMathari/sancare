@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	<link rel="icon" href="Favicon/FAVsancare.ico" type="image/x-icon" sizes="16x16">
+
+	<style>
+		li a.active{
+			background-color: #006a00;
+		}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="Home.html">Sancare Preparatory</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a href="Home.html">Home</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li class="active"><a href="Contact.html">Contact</a></li>
+         <li><a href="News.html">News</a></li>
+          <li><a href="Calendar.html">Calendar</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+				<h2 style="color: #006a00;">WHY SANCARE PREPARATORY SCHOOL?</h2>
+				<p style="font-size: 20px;">The school is located in serene environment conducive for learning. It has highly qualified, competent and experienced staff with lots of knowledge and skills in achieving academic excellence. In addition the school also has the following facilities:</p>
+				<ul>
+				<li>Play ground (field)</li>
+				<li>Well balanced diet for the pupils</li>
+				<li>Termly Educational trips</li>
+				<li>8.4.4 system with integrated education meant to mould pupils socially, academically and religiously.</li>
+				<li>Professional teachers with high level academic qualification.</li>
+				<li>A fully equipped library that is easily accessed by the students.</li>
+				<li>An affordable school fees that offers quality education to the students.</li>
+                <li>An active participant of outdoor school activities such as: sports, school debates, music and drama festivals etc.</li>
+                </ul>
+				</div>
+				<div class="col-md-6">
+				<div class="well">
+				<form class="form-horizontal" method="post" action="http://localhost/SanCare/insert.php" role="form">
+					<h3><b style="color: #006a00;">Send us a message:</b></h3>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="name">Name:</label>
+						<div class="col-sm-10">
+							<input type="text" name="Name" class="form-control" id="name" placeholder="Enter Name" required="Name must be present">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Email:</label>
+						<div class="col-sm-10">
+							<input type="email" name="Email" class="form-control" id="email" placeholder="Enter email">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="pnr">Phone Number:</label>
+						<div class="col-sm-10"> 
+							<input type="number" name="PhoneNumber" class="form-control" id="pnr" placeholder="Enter Phone Number" required="Phone Number must be present">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="message">Message:</label>
+						<div class="col-sm-10"> 
+							<textarea  type="textarea" style="width: 100%;height: 150px;" name="Message" class="form-control" id="message" placeholder="Enter Message"></textarea>
+						</div>
+					</div>
+					<button class="btn btn-success" style="width: 50%;" >Submit</button>
+					
+					</form>
+
+		</div>
+		</div>
+		</div>
+		</div>
+
+		<div class="well well-lg">
+			<div class="row" style="color:#006a00; " >
+				<div class="col-md-4">
+				<ul>
+					<ul ><span class="glyphicon glyphicon-home"></span><a href="Home.html" style="color:#006a00;font-size: 20px; ">Home</a> </ul>
+					<ul><span class="glyphicon glyphicon-search"></span><a href="AboutUs.html" style="color:#006a00; font-size: 20px;">About Us</a></ul>
+					<ul><span class="glyphicon glyphicon-phone"></span><a href="Contact.html" style="color:#006a00;font-size: 20px;">Contact</a></ul>
+					<ul><span class="glyphicon glyphicon-list-alt"></span><a href="News.html" style="color:#006a00;font-size: 20px;">News</a></ul>
+					<ul><span class="glyphicon glyphicon-calendar"></span><a href="Calendar.html" style="color:#006a00; font-size: 20px;">Calendar</a></ul>
+				</ul>	
+				</div>
+				<div class="col-md-4" style="text-align: center;font-size: 17px;">
+					<ul><span class="glyphicon glyphicon-education"></span>Sancare Preparatory School</ul>
+					<ul><span class="glyphicon glyphicon-envelope"></span>P.O. BOX 61416-00200 G.P.O. Nairobi</ul>
+					<ul><span class="glyphicon glyphicon-phone-alt"></span>Tel: 0723 542 220 / 0722 374 480</ul>
+					<ul><span class="glyphicon glyphicon-envelope"></span>sancarepreparatory@gmail.com</ul>
+				</div>
+				<div class="col-md-4">
+					<img src="Logo\SancareLogoHomeFooter.png" class="img-responsive" style="float: right;">
+				</div>
+			</div>
+			</div>
+		
+	
+</body>
+</html>
